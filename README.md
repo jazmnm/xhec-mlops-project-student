@@ -81,7 +81,7 @@ project/
 ├── .gitignore                    # Files and directories to be ignored by Git
 ├── .pre-commit-config.yaml       # Pre-commit hooks configuration
 ├── config.py                     # Configuration settings for the project
-├── deploy_retrain.py             # Deploy the train_model_workflow with schedule, automatically 
+├── deploy_retrain.py             # Deploy the train_model_workflow with schedule, automatically
 ├── Dockerfile.app                # Dockerfile
 ├── environment.yml               # Conda environment configuration file
 ├── orchestration.py              # Prefect orchestration script for model deployment
@@ -103,7 +103,7 @@ To set up the environment for this project, follow the steps below:
 
 ```bash
 git clone https://github.com/jazmnm/xhec-mlops-project-student.git
-cd project
+cd xhec-mlops-project-student
 ```
 
 ### 2. Create and Activate a Virtual Environment
