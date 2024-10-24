@@ -53,6 +53,9 @@ def evaluate_model_task(y_test, y_pred):
 def load_model_task(model_path: str):
     # Custom function to load a pre-trained model from a file
     model = load_pickle_object(model_path)
+    if model is None:
+        logger.error("Model could not be loaded, please check the model path and file.")
+
     return model
 
 
