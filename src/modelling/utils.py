@@ -1,5 +1,4 @@
 def pickle_object(obj: Any, path: str) -> None:
-    """Pickle an object and save it to a specified path."""
     try:
         with open(path, "wb") as f:
             pickle.dump(obj, f)
