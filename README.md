@@ -103,7 +103,6 @@ To set up the environment for this project, follow the steps below:
 
 ```bash
 git clone https://github.com/jazmnm/xhec-mlops-project-student.git
-cd project
 ```
 
 ### 2. Create and Activate a Virtual Environment
@@ -130,7 +129,7 @@ If you prefer using **conda** for managing environments, follow these steps:
 
    ```bash
    conda env create -f environment.yml
-   conda activate abandon_env  # Replace with the environment name specified in environment.yml
+   conda activate abandon_env
    ```
 
 2. **Install Additional Development Dependencies**
@@ -329,7 +328,7 @@ First, enter the file folder of main.py and use instruction below to activate
 uvicorn main:app --reload
 ```
 
-The FastAPI app provides an endpoint to make predictions. Once the Docker container is running, you can make a `POST` request to the `/predict` endpoint.
+The FastAPI app provides an endpoint to make predictions. Once the Docker container is running, you can make a `POST` request to the `/predict` endpoint. You need to open a new terminal to input data to get prediction.
 
 ### Sample Request:
 
