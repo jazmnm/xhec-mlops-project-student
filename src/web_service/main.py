@@ -20,9 +20,8 @@ app = FastAPI(title=APP_TITLE, description=APP_DESCRIPTION)
 def home() -> dict:
     return {"health_check": "App up and running!"}
 
-
 @app.post("/predict", response_model=PredictionOutput, status_code=201)
 def predict(payload: PredictionInput) -> dict:
     model = load_project(PATH_TO_MODEL)
     y = run_inference([payload], model)
-    return {"abalone_age_prediction": y}
+    return {"prediction": y}
