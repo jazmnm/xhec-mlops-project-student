@@ -1,9 +1,11 @@
 import numpy as np
+import pandas as pd
 from loguru import logger
+from models import PredictionInput
 from sklearn.base import BaseEstimator
 
 
-def run_inference(input_data: np.ndarray, model: BaseEstimator) -> np.ndarray:
+def run_inference(input_data: list[PredictionInput], model: BaseEstimator) -> np.ndarray:
     """
     Run inference on a list of input data.
 
@@ -15,6 +17,7 @@ def run_inference(input_data: np.ndarray, model: BaseEstimator) -> np.ndarray:
         np.ndarray: The predicted age of the abalone.
     """
     logger.info(f"Running inference on:\n{input_data}")
-    y = model.predict(input_data)
+    df = pd.DataFrame([x.dict() for x in input_data])
+    y = model.predict(df)
     logger.info(f"Predicted the age of abalone:\n{y}")
     return y
