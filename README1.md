@@ -119,7 +119,7 @@ If you prefer using **conda** for managing environments, follow these steps:
 
    ```bash
    conda env create -f environment.yml
-   conda activate your-env-name  # Replace with the environment name specified in environment.yml
+   conda activate abandon_env  # Replace with the environment name specified in environment.yml
    ```
 
 2. **Install Additional Development Dependencies**
@@ -142,7 +142,7 @@ If you prefer using **pip** for managing dependencies, you can follow this appro
    python -m venv venv
    source venv/bin/activate  # On Windows use: venv\Scripts\activate
    ```
-
+   
 2. **Install the Required Packages**
 
    For production use (minimal dependencies), install the packages from `requirements.txt`:
@@ -234,16 +234,29 @@ If you have a front-end interface, you can access it at http://localhost:4200.
 
 ## Using the API
 
+First, enter the file folder of main.py and use instruction below to activate
+
+'''bash
+uvicorn main:app --reload
+'''
+
 The FastAPI app provides an endpoint to make predictions. Once the Docker container is running, you can make a `POST` request to the `/predict` endpoint.
 
 ### Sample Request:
 
 ```bash
-curl -X POST "http://localhost:8000/predict" \
--H "Content-Type: application/json" \
--d '{
-    "feature1": 1.0,
-    "feature2": 2.0
+curl -X 'POST' \
+  'http://127.0.0.1:8000/predict' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "Sex": "M",
+    "Length": 0.52,
+    "Diameter": 0.35,
+    "Height": 0.26,
+    "Whole_weight": 0.22,
+    "Shucked_weight": 0.24,
+    "Viscera_weight": 0.08,
+    "Shell_weight": 0.09
 }'
 ```
 
@@ -251,7 +264,7 @@ curl -X POST "http://localhost:8000/predict" \
 
 ```json
 {
-  "prediction": 10.5
+  "prediction": 6.708031242815049
 }
 ```
 
@@ -268,8 +281,9 @@ The project includes an **EDA notebook** that provides insights into the dataset
 ## Contributors
 
 - **Xianghan Mei**
-- **Teammate 1**
-- **Teammate 2**
-- **Teammate 3**
+- **Chenfei Wang**
+- **Mingyu Wang**
+- **Rong Shen**
+- **Xiaohan Ke**
 
 ---
