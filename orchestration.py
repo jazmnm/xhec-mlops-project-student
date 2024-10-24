@@ -7,15 +7,10 @@ from loguru import logger
 from prefect import flow, get_run_logger, task
 
 from config import CATEGORICAL_COLS, DATA_DIRPATH, MODELS_DIRPATH
-from src.modelling.predicting import predict_age
+from src.modelling.predicting import evaluate_model, predict_age
 from src.modelling.preprocessing import encode_categorical_cols, extract_x_y
-from src.modelling.training import train_model
-from src.modelling.utils import (
-    evaluate_model,
-    load_data,
-    load_pickle_object,
-    save_pickle_object,
-)
+from src.modelling.training import load_data, train_pipeline
+from src.modelling.utils import load_pickle_object, save_pickle_object
 
 
 # Define Prefect tasks
@@ -33,7 +28,7 @@ def preprocess_data_task(df: pd.DataFrame, categorical_cols: list = None):
 
 @task
 def train_model_task(X_train: np.ndarray, y_train: np.ndarray):
-    model = train_model(X_train, y_train)
+    model = train_pipeline(X_train, y_train)
     return model
 
 
@@ -87,7 +82,7 @@ def train_model_workflow(
 
     # Train model
     logger.info("Training model...")
-    model = train_model(X_train_scaled, y_train)
+    model = train_pipeline(X_train_scaled, y_train)
 
     # Evaluate model
     logger.info("Making predictions and evaluating...")
