@@ -1,9 +1,5 @@
 import pickle
-from pathlib import Path
 from typing import Any
-
-import pandas as pd
-import numpy as np
 
 
 def save_pickle_object(obj: Any, path: str) -> None:
