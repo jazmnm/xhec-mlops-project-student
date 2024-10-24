@@ -103,7 +103,7 @@ It's recommended to create a virtual environment for this project:
 python -m venv venv
 source venv/bin/activate   # On Windows use: venv\Scripts\activate
 ```
-If you use conda, refer to the next step for environment setup. 
+If you use conda, refer to the next step for environment setup.
 
 ### 3. Install Dependencies
 
@@ -142,7 +142,7 @@ If you prefer using **pip** for managing dependencies, you can follow this appro
    python -m venv venv
    source venv/bin/activate  # On Windows use: venv\Scripts\activate
    ```
-   
+
 2. **Install the Required Packages**
 
    For production use (minimal dependencies), install the packages from `requirements.txt`:
@@ -236,9 +236,9 @@ If you have a front-end interface, you can access it at http://localhost:4200.
 
 First, enter the file folder of main.py and use instruction below to activate
 
-'''bash
+```bash
 uvicorn main:app --reload
-'''
+```
 
 The FastAPI app provides an endpoint to make predictions. Once the Docker container is running, you can make a `POST` request to the `/predict` endpoint.
 
