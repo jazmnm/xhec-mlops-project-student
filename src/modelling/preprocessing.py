@@ -5,9 +5,6 @@ from prefect import task
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 
-CATEGORICAL_COLS = ["Sex"]
-
-
 @task(
     name="encode_categorical_columns",
     description="Encodes categorical columns in the DataFrame",
