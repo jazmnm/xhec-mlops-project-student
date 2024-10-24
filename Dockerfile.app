@@ -5,6 +5,9 @@ FROM python:3.10.15-slim
 # Set working directory
 WORKDIR /app_home
 
+# Copy the bin/run_services.sh script to the container
+COPY ./bin/run_services.sh /app_home/bin/run_services.sh
+
 # Copy the requirements file and install dependencies
 COPY ./requirements.txt /app_home/requirements.txt
 RUN pip install --upgrade pip \
