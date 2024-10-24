@@ -14,10 +14,9 @@ def train_model(
     y_train: np.ndarray
     ):
 
-    pipeline = Pipeline([
-        ('scaler', StandardScaler()),
-        ('regressor', LinearRegression())
-    ])
+    pipeline = Pipeline(
+        [("scaler", StandardScaler()), ("regressor", LinearRegression())]
+    )
 
     pipeline.fit(X_train, y_train)
     return pipeline
