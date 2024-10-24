@@ -2,6 +2,7 @@ import os
 import pandas as pd
 import pickle
 from typing import Any
+from pathlib import Path
 
 def pickle_object(obj: Any, path: str) -> None:
     try:
@@ -11,6 +12,6 @@ def pickle_object(obj: Any, path: str) -> None:
     except Exception as e:
         print(f"Error pickling the object: {e}")
 
-def load_data(root_path: str, data_name: str):
-        print(os.path.join(root_path, data_name))
-        return pd.read_csv(os.path.join(root_path, data_name))
+def load_data(data_path: Path) -> pd.DataFrame:
+    """Load the dataset from the given path."""
+    return pd.read_csv(data_path)
