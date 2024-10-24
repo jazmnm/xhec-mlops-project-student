@@ -23,6 +23,7 @@ repos:
         language: system
       - id: flake8
         name: Linting (flake8)
+        args: [--max-line-length=88]
         entry: flake8
         types: [python]
         language: system
