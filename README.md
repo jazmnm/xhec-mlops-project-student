@@ -141,3 +141,9 @@ This will guarantee that your code is formatted correctly and of good quality be
 ```bash
 pip-compile requirements.in
 ```
+
+- Use a bash instruction to install your conda environment and activate it to use:
+ ```bash
+conda env create -f environment.yml 
+conda activate env
+```
