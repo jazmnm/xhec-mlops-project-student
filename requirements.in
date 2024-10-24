@@ -1,2 +1,15 @@
+<<<<<<< HEAD
 # TODO - complete with requirements (pandas, sklearn etc...)
 # Then, execute "pip-compile requirements.in" to generate the file requirements.txt
+=======
+seaborn==0.12.2
+scikit-learn==1.5.2
+ipykernel==6.25.2
+pandas==2.1.1
+loguru==0.7.2
+mlflow==2.7.1
+pydantic>=1,<2
+uvicorn==0.23.2
+fastapi==0.103.2
+prefect==2.13.7
+>>>>>>> ac4a22f4d2a723d39e2452dc94a3087ea05898e3
