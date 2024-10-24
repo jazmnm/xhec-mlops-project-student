@@ -5,8 +5,6 @@ from lib.inference import run_inference
 from lib.models import PredictionInput, PredictionOutput
 from utils import load_project
 
-# Other imports
-
 app = FastAPI(title=APP_TITLE, description=APP_DESCRIPTION)
 
 

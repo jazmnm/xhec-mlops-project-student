@@ -1,5 +1,4 @@
 # MODELS
-
 PATH_TO_MODEL = "local_objects/model.pkl"
 
 # MISC

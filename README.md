@@ -39,7 +39,7 @@ This project is centered around predicting the number of rings in abalones, whic
 
 - An **EDA notebook** showcasing initial analysis and visualization of the dataset.
 - A **FastAPI** web service for model inference.
-- An **orchestration workflow** using **Prefect** to automate the training and deployment process.
+- An **Orchestration Workflow** using **Prefect** to automate the training, deployment and scheduled retaining process.
 - A **Docker** container for easy deployment of the model and API.
 
 ---
