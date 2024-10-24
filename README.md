@@ -251,7 +251,7 @@ The **`deploy_retrain.py`** file is used to schedule the `train_model_workflow` 
 ### How to Run the Code
 
 1. **Start the Prefect Server**
-   
+
    In your terminal, start the Prefect server by running:
    ```bash
    prefect server start
@@ -260,7 +260,7 @@ The **`deploy_retrain.py`** file is used to schedule the `train_model_workflow` 
 Make sure to keep this process running while executing workflows or managing deployments.
 
 2. **Train the Model and Make Predictions**
-   
+
 The `orchestration.py` file contains the flows for both training the model and making predictions. You can manually trigger the training or prediction workflows by executing the script in a new terminal, while not closing previous terminal:
 
 ```bash
@@ -283,7 +283,7 @@ It will also:
 If you encounter the following error message: AttributeError: 'NoneType' object has no attribute 'predict', try to run the command line a second time, and you will resolve the problem.
 
 3. **Deploy the Model for Regular Retraining**
-   
+
 To deploy the model so that it retrains daily, you need to use the `deploy_retrain.py` file. This deployment is configured to retrain the model every day at midnight in the Paris timezone.
 
 Run the following command:
@@ -295,7 +295,7 @@ python /path/to/deploy_retrain.py
 This creates a deployment that will automatically retrain the model daily at midnight.
 
 4. **Optional: Manually Trigger a Flow Run**
-   
+
 Once the deployment has been set up, you can also manually trigger a flow run using this command:
 
 ```bash
@@ -303,7 +303,7 @@ prefect deployment run 'Training Model Flow/daily-train-model' --params '{"train
 ```
 
 5. **Prefect UI**
-   
+
 You can monitor the status of your flows and deployments through the Prefect UI, accessible via:
 
 ```bash
