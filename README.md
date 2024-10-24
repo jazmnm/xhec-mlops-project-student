@@ -257,7 +257,7 @@ Make sure to keep this process running while executing workflows or managing dep
 The `orchestration.py` file contains the flows for both training the model and making predictions. You can manually trigger the training or prediction workflows by executing the script:
 
 ```bash
-python /path/to/orchestration.py
+python /path/to/orchestration.py # change the path to your path
 ```
 
 This will:
@@ -271,22 +271,22 @@ It will also:
 - Load the saved model for batch prediction
 - Generate predictions on the input dataset
 
-3. **Deploy the Model for Regular Retraining**
+3. **Deploy the Model for Regular Automatic Retraining**
 To deploy the model so that it retrains daily, you need to use the `deploy_retrain.py` file. This deployment is configured to retrain the model every day at midnight in the Paris timezone.
 
 Run the following command:
 
 ```bash
-python /path/to/deploy_retrain.py
+python /path/to/deploy_retrain.py  # change the path to your path
 ```
 
 This creates a deployment that will automatically retrain the model daily at midnight.
 
-4. **Manually Trigger a Flow Run**
+4. **Optional: Manually Trigger a Flow Run**
 Once the deployment has been set up, you can also manually trigger a flow run using this command:
 
 ```bash
-prefect deployment run 'Training Model Flow/daily-train-model'
+prefect deployment run 'Training Model Flow/daily-train-model' --params '{"train_filepath": "path/to/your/data/abalone.csv"}'   # change the path to your path
 ```
 
 5. **Prefect UI**
