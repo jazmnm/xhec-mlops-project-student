@@ -1,16 +1,18 @@
-# This module is the training flow: it reads the data, preprocesses it, trains a model and saves it.
+# This module is the training flow:
+# it reads the data, preprocesses it, trains a model and saves it.
 import argparse
-import os
-import pandas as pd
-from typing import List
-from preprocessing import extract_x_y
-from training import train_model
 import pickle
 from pathlib import Path
+
+from preprocessing import extract_x_y
+from training import train_model
 from utils import load_data
 
+
 def main(trainset_path: Path) -> None:
-    """Train a model using the data at the given path and save the model (pickle)."""
+    """
+    Train a model using the data at the given path and save the model (pickle).
+    """
 
     train_df = load_data(trainset_path)
 
@@ -20,9 +22,15 @@ def main(trainset_path: Path) -> None:
     # Train model
     model = train_model(X_train, y_train)
 
-    # Pickle model --> The model should be saved in pkl format the `src/web_service/local_objects` folder
-    with open('src/web_service/local_objects/model.pkl', 'wb') as f:
+    """
+    Pickle model -->
+    # Save the model in pkl format
+    # in the `src/web_service/local_objects` folder
+    """
+
+    with open("src/web_service/local_objects/model.pkl", "wb") as f:
         pickle.dump(model, f)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -30,5 +38,5 @@ if __name__ == "__main__":
     )
     parser.add_argument("trainset_path", type=str, help="Path to the training set")
     args = parser.parse_args()
-    
-    main(args.trainset_path)
+
+    main(Path(args.trainset_path))
