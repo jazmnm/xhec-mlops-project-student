@@ -5,8 +5,8 @@ import pickle
 from pathlib import Path
 
 from preprocessing import extract_x_y
-from training import train_model
-from utils import load_data
+from utils import save_pickle_object
+from training import train_model, load_data
 
 
 def main(trainset_path: Path) -> None:
@@ -28,9 +28,8 @@ def main(trainset_path: Path) -> None:
     # in the `src/web_service/local_objects` folder
     """
 
-    with open("src/web_service/local_objects/model.pkl", "wb") as f:
-        pickle.dump(model, f)
-
+    pickle_save_path = "src/web_service/local_objects/model.pkl"
+    save_pickle_object(model, pickle_save_path)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
