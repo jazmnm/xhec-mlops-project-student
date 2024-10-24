@@ -22,6 +22,7 @@ def preprocess_input(input_data: list[PredictionInput]) -> list[dict]:
 
 def run_inference(input_data: list[PredictionInput], model: BaseEstimator) -> np.ndarray:
     # No need to call .dict() as input_data is already a list of dicts after preprocessing
+    input_data = preprocess_input(input_data)
     df = pd.DataFrame(input_data)
     print(df.columns)
     df = encode_categorical_cols(df)
