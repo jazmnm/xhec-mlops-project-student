@@ -49,4 +49,4 @@ jobs:
       # Step 8: Run the linters
       - name: Lint code with Flake8
         run: |
-          flake8 .
+          flake8 --max-line-length=88 .
