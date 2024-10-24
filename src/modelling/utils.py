@@ -14,5 +14,5 @@ def pickle_object(obj: Any, path: str) -> None:
         print(f"Error pickling the object: {e}")
 
 
-def load_data(data_path: Path) -> pd.DataFrame:
+def load_data(data_path: str) -> pd.DataFrame:
     return pd.read_csv(data_path)
