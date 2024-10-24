@@ -25,7 +25,7 @@ The age of abalone is determined by cutting the shell through the cone, staining
 1. [Project Overview](#project-overview)
 2. [Folder Structure](#folder-structure)
 3. [Installation](#installation)
-4. [Training the Model](#training-the-model)
+4. [Train the Model](#train-the-model)
 5. [Using Docker](#using-docker)
 6. [Using the API](#using-the-api)
 7. [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
@@ -39,7 +39,7 @@ This project is centered around predicting the number of rings in abalones, whic
 
 - An **EDA notebook** showcasing initial analysis and visualization of the dataset.
 - A **FastAPI** web service for model inference.
-- An **orchestration workflow** using **Prefect** to automate the training and deployment process.
+- An **Orchestration Workflow** using **Prefect** to automate the training, deployment and scheduled retaining process.
 - A **Docker** container for easy deployment of the model and API.
 
 ---
@@ -243,7 +243,7 @@ The **`deploy_retrain.py`** file is used to schedule the `train_model_workflow` 
 
 Make sure to keep this process running while executing workflows or managing deployments.
 
-### 2. Train the Model and Make Predictions
+2. **Train the Model and Make Predictions**
 The `orchestration.py` file contains the flows for both training the model and making predictions. You can manually trigger the training or prediction workflows by executing the script:
 
 ```bash
@@ -261,7 +261,7 @@ It will also:
 - Load the saved model for batch prediction
 - Generate predictions on the input dataset
 
-### 3. Deploy the Model for Regular Retraining
+3. **Deploy the Model for Regular Retraining**
 To deploy the model so that it retrains daily, you need to use the `deploy_retrain.py` file. This deployment is configured to retrain the model every day at midnight in the Paris timezone.
 
 Run the following command:
@@ -272,14 +272,14 @@ python /path/to/deploy_retrain.py
 
 This creates a deployment that will automatically retrain the model daily at midnight.
 
-### 4. Manually Trigger a Flow Run
+4. **Manually Trigger a Flow Run**
 Once the deployment has been set up, you can also manually trigger a flow run using this command:
 
 ```bash
 prefect deployment run 'Training Model Flow/daily-train-model'
 ```
 
-### 5. Prefect UI
+5. **Prefect UI**
 You can monitor the status of your flows and deployments through the Prefect UI, accessible via:
 
 ```bash
