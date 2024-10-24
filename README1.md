@@ -103,7 +103,7 @@ It's recommended to create a virtual environment for this project:
 python -m venv venv
 source venv/bin/activate   # On Windows use: venv\Scripts\activate
 ```
-If you use conda, refer to the next step for environment setup. 
+If you use conda, refer to the next step for environment setup.
 
 ### 3. Install Dependencies
 
@@ -142,7 +142,7 @@ If you prefer using **pip** for managing dependencies, you can follow this appro
    python -m venv venv
    source venv/bin/activate  # On Windows use: venv\Scripts\activate
    ```
-   
+
 2. **Install the Required Packages**
 
    For production use (minimal dependencies), install the packages from `requirements.txt`:
