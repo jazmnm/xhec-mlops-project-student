@@ -2,7 +2,7 @@
 # Refer to the course and follow the best practices for creating a conda environment
 name: abandon_env
 channels:
-  - conda-forge 
+  - conda-forge
   - defaults
 dependencies:
   - python=3.10
@@ -10,4 +10,3 @@ dependencies:
   - pip-tools=7.3.0
   - pip:
       - -r requirements.txt
-      
