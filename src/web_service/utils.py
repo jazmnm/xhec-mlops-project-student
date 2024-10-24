@@ -2,7 +2,9 @@
 import os
 import pickle
 from functools import lru_cache
+
 from loguru import logger
+
 
 @lru_cache
 def load_project(filepath: os.PathLike):
