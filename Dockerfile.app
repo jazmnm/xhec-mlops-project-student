@@ -5,6 +5,12 @@ FROM python:3.10.15-slim
 # Set working directory
 WORKDIR /app_home
 
+# Copy the bin/run_services.sh script to the container
+COPY ./bin/run_services.sh /app_home/bin/run_services.sh
+
+# Add execute permissions to the script
+RUN chmod +x /app_home/bin/run_services.sh
+
 # Copy the requirements file and install dependencies
 COPY ./requirements.txt /app_home/requirements.txt
 RUN pip install --upgrade pip \
@@ -18,6 +24,6 @@ EXPOSE 8001
 EXPOSE 4201
 
 # Use the custom run_service.sh script to start both Prefect and Uvicorn
-CMD ["bin/run_services.sh"]
+CMD ["bash", "/app_home/bin/run_services.sh"]
 
 # Do not forget to expose the right ports! (Check the PR_4.md)
