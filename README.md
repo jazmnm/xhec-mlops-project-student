@@ -217,6 +217,10 @@ If you are using **pip-tools** to manage dependencies, you can install from the 
 
 ## Train the Model
 
+Due to dependency version conflict between the latest verion of prefect(3.0.10) and versions of fastapi(>=0.103.2), you need to upgrade your prefect version manually to build your prefect server after building your environment with 'requirement.txt'. Use instruction below:
+'''bash
+pip install --upgrade prefect
+'''
 
 This project contains two separate workflows:
 1. **Training a model**: A Prefect flow that automates the training of a model to predict the age of abalone. The workflow includes steps such as loading the data, processing it (encoding categorical variables), training the model, evaluating the model, and saving the trained model.
@@ -298,6 +302,19 @@ http://0.0.0.0:4200
 Keep in mind that for scheduled flows to run, the Prefect server must be active.
 
 ---
+## Using the API
+
+First, enter the file folder of main.py
+
+'''bash
+cd /Users/wangchenfei/xhec-mlops-project-student/src/web_service
+'''
+
+Second, use instruction below to activate
+```bash
+uvicorn main:app --reload
+```
+---
 
 ## Using Docker
 
@@ -318,19 +335,9 @@ Once the container is running:
 The FastAPI app can be accessed at http://localhost:8000.
 If you have a front-end interface, you can access it at http://localhost:4200.
 
----
 
-## Using the API
-
-First, enter the file folder of main.py and use instruction below to activate
-
-```bash
-uvicorn main:app --reload
-```
-
-The FastAPI app provides an endpoint to make predictions. Once the Docker container is running, you can make a `POST` request to the `/predict` endpoint. You need to open a new terminal to input data to get prediction.
-
-### Sample Request:
+### 3. Sample Request:
+The FastAPI app provides an endpoint to make predictions. You need to use CURL in a new terminal to input data to get prediction. Once the Docker container is running, you can make a `POST` request to the `/predict` endpoint.
 
 ```bash
 curl -X 'POST' \
