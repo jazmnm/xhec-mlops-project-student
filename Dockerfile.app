@@ -19,7 +19,7 @@ RUN pip install --upgrade pip \
 # Copy the web service source code into the container
 COPY ./src/web_service /app_home/src/web_service
 
-# Expose the ports for Uvicorn and Prefect 
+# Expose the ports for Uvicorn and Prefect
 EXPOSE 8001
 EXPOSE 4201
 
