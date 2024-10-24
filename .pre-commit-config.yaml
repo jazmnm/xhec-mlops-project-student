@@ -21,7 +21,7 @@ repos:
         entry: isort
         types: [python]
         language: system
-      - id: flake8 
+      - id: flake8
         name: Linting (flake8)
         entry: flake8
         types: [python]
