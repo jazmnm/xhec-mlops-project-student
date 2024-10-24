@@ -119,6 +119,13 @@ If you use conda, refer to the next step for environment setup.
 
 You can set up the environment for this project using either **pip** or **conda**.
 
+*Need to mention*:
+Due to dependency version conflict between the latest verion of prefect(3.0.10) and versions of fastapi(>=0.103.2), you need to upgrade your prefect version manually to build your prefect server after building your environment with `requirement.txt`. Use instruction below:
+```bash
+pip install --upgrade prefect
+```
+
+
 #### Option 1: Using Conda
 
 If you prefer using **conda** for managing environments, follow these steps:
@@ -216,11 +223,6 @@ If you are using **pip-tools** to manage dependencies, you can install from the 
 ---
 
 ## Train the Model
-
-Due to dependency version conflict between the latest verion of prefect(3.0.10) and versions of fastapi(>=0.103.2), you need to upgrade your prefect version manually to build your prefect server after building your environment with 'requirement.txt'. Use instruction below:
-'''bash
-pip install --upgrade prefect
-'''
 
 This project contains two separate workflows:
 1. **Training a model**: A Prefect flow that automates the training of a model to predict the age of abalone. The workflow includes steps such as loading the data, processing it (encoding categorical variables), training the model, evaluating the model, and saving the trained model.
