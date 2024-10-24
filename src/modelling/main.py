@@ -7,14 +7,12 @@ from preprocessing import extract_x_y
 from training import train_model
 import pickle
 from pathlib import Path
+from utils import load_data
 
 def main(trainset_path: Path) -> None:
     """Train a model using the data at the given path and save the model (pickle)."""
-    # Read data
-    def load_data(root_path: str, data_name: str):
-        return pd.read_csv(os.path.join(root_path, data_name))
 
-    data_root_path = "../data"
+    data_root_path = "../../data"
     data_name = "abalone.csv"
     train_df = load_data(data_root_path, data_name)
 
