@@ -71,7 +71,7 @@ def train_model_workflow(
     """
     # Load training data
     logger.info("Processing training data...")
-    data_path = "../data/abalone.csv"
+    data_path = "data/abalone.csv"
     train_df = load_data_task(data_path)
 
     # Process the data
@@ -93,7 +93,7 @@ def train_model_workflow(
     if artifacts_filepath is not None:
         logger.info(f"Saving artifacts to {artifacts_filepath}...")
         model_path = os.path.join(artifacts_filepath, "model.pkl")
-        save_model_task.run(model, model_path)
+        save_model_task(model, model_path)
 
     return {"model": model, "rmse": rmse}
 
@@ -101,7 +101,7 @@ def train_model_workflow(
 @flow(name="Batch Prediction Workflow")
 def batch_predict_workflow(
     input_data_filepath: str,
-    model_filepath: str,
+    filepath_model: str,
     output_predictions_filepath: Optional[str] = None,
 ) -> dict:
     """
@@ -124,7 +124,7 @@ def batch_predict_workflow(
 
     # Load the pre-trained model
     logger.info("Loading pre-trained model...")
-    model = load_model_task(model_filepath)
+    model = load_model_task(filepath_model)
 
     # Generate predictions
     logger.info("Making predictions...")
@@ -136,10 +136,10 @@ def batch_predict_workflow(
 if __name__ == "__main__":
     train_model_workflow(
         train_filepath=os.path.join(DATA_DIRPATH, "abalone.csv"),
-        artifacts_filepath=str(DATA_DIRPATH / "models"),
+        artifacts_filepath=os.path.join(MODELS_DIRPATH),
     )
 
     batch_predict_workflow(
-        input_filepath=os.path.join(DATA_DIRPATH, "abalone.csv"),
-        artifacts_filepath=MODELS_DIRPATH,
+        input_data_filepath=os.path.join(DATA_DIRPATH, "abalone.csv"),
+        filepath_model=os.path.join(MODELS_DIRPATH, "model.pkl"),
     )
