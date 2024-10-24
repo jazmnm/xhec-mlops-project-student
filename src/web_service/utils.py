@@ -1,4 +1,4 @@
-# Utils file. TODO: add a `load_object` function to load pickle objects
+# Utils file.
 import os
 import pickle
 from functools import lru_cache
