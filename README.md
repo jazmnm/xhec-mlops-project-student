@@ -259,9 +259,10 @@ The **`deploy_retrain.py`** file is used to schedule the `train_model_workflow` 
 Make sure to keep this process running while executing workflows or managing deployments.
 
 2. **Train the Model and Make Predictions**
-The `orchestration.py` file contains the flows for both training the model and making predictions. You can manually trigger the training or prediction workflows by executing the script:
+The `orchestration.py` file contains the flows for both training the model and making predictions. You can manually trigger the training or prediction workflows by executing the script in a new terminal, while not closing previous terminal:
 
 ```bash
+export PREFECT_API_URL=http://localhost:4201/api
 python /path/to/orchestration.py
 ```
 
@@ -275,6 +276,9 @@ This will:
 It will also:
 - Load the saved model for batch prediction
 - Generate predictions on the input dataset
+
+Need to mention:
+If you encounter the following error message: AttributeError: 'NoneType' object has no attribute 'predict', try to run the command line a second time, and you will resolve the problem.
 
 3. **Deploy the Model for Regular Retraining**
 To deploy the model so that it retrains daily, you need to use the `deploy_retrain.py` file. This deployment is configured to retrain the model every day at midnight in the Paris timezone.
