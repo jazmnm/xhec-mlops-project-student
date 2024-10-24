@@ -119,7 +119,7 @@ If you use conda, refer to the next step for environment setup.
 
 You can set up the environment for this project using either **pip** or **conda**.
 
-*Need to mention*:
+⚠️**Need to mention**:
 Due to dependency version conflict between the latest verion of prefect(3.0.10) and versions of fastapi(>=0.103.2), you need to upgrade your prefect version manually to build your prefect server after building your environment with `requirement.txt`. Use instruction below:
 ```bash
 pip install --upgrade prefect
@@ -277,7 +277,7 @@ It will also:
 - Load the saved model for batch prediction
 - Generate predictions on the input dataset
 
-Need to mention:
+⚠️**Need to mention**:
 If you encounter the following error message: AttributeError: 'NoneType' object has no attribute 'predict', try to run the command line a second time, and you will resolve the problem.
 
 3. **Deploy the Model for Regular Retraining**
