@@ -1,6 +1,6 @@
 # MODELS
-MODEL_VERSION = "0.0.1"
-PATH_TO_MODEL = f"local_objects/{MODEL_VERSION}.pkl"
+
+PATH_TO_MODEL = f"local_objects/model.pkl"
 
 # MISC
 APP_TITLE = "Abalone Age Prediction App"
@@ -9,4 +9,4 @@ APP_DESCRIPTION = (
     "This model uses various physical attributes of abalone to accurately forecast their age, "
     "providing a more efficient solution for age determination."
 )
-APP_VERSION = "0.0.1"
+

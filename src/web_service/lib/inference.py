@@ -5,22 +5,28 @@ from lib.models import PredictionInput
 from lib.preprocessing import encode_categorical_cols
 from sklearn.base import BaseEstimator
 
+def preprocess_input(input_data: list[PredictionInput]) -> list[dict]:
+    processed_data = []
+    for data in input_data:
+        processed_data.append({
+            "Sex": data.Sex,
+            "Length": data.Length,
+            "Diameter": data.Diameter,
+            "Height": data.Height,
+            "Whole weight": data.Whole_weight,
+            "Shucked weight": data.Shucked_weight,
+            "Viscera weight": data.Viscera_weight,
+            "Shell weight": data.Shell_weight
+        })
+    return processed_data
 
 def run_inference(input_data: list[PredictionInput], model: BaseEstimator) -> np.ndarray:
-    """
-    Run inference on a list of input data.
-
-    Args:
-        input_data (np.ndarray): The input data (features) to run inference on.
-        model (BaseEstimator): The fitted pipeline
-
-    Returns:
-        np.ndarray: The predicted age of the abalone.
-    """
-    logger.info(f"Running inference on:\n{input_data}")
-    df = pd.DataFrame([x.dict() for x in input_data])
-
+    # No need to call .dict() as input_data is already a list of dicts after preprocessing
+    df = pd.DataFrame(input_data)
+    print(df.columns)
     df = encode_categorical_cols(df)
+    # Running inference
     y = model.predict(df)
+
     logger.info(f"Predicted the age of abalone:\n{y}")
     return y
