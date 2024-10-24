@@ -15,5 +15,4 @@ def pickle_object(obj: Any, path: str) -> None:
 
 
 def load_data(data_path: Path) -> pd.DataFrame:
-    """Load the dataset from the given path."""
     return pd.read_csv(data_path)
