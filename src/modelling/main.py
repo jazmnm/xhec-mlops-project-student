@@ -12,9 +12,7 @@ from utils import load_data
 def main(trainset_path: Path) -> None:
     """Train a model using the data at the given path and save the model (pickle)."""
 
-    data_root_path = "../../data"
-    data_name = "abalone.csv"
-    train_df = load_data(data_root_path, data_name)
+    train_df = load_data(trainset_path)
 
     # Preprocess data
     X_train, X_test, y_train, y_test = extract_x_y(train_df)
