@@ -25,4 +25,4 @@ def home() -> dict:
 def predict(payload: PredictionInput) -> dict:
     model = load_project(PATH_TO_MODEL)
     y = run_inference([payload], model)
-    return {"abalone_age_prediction": y[0]}
+    return {"abalone_age_prediction": y}
