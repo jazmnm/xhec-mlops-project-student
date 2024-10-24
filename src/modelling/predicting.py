@@ -1,5 +1,6 @@
 import numpy as np
 from prefect import task
+from sklearn.metrics import root_mean_squared_error
 from sklearn.pipeline import Pipeline
 
 
