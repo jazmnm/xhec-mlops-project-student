@@ -4,13 +4,10 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 
-CATEGORICAL_COLS = ["Sex"]
-
 
 def encode_categorical_cols(
     df: pd.DataFrame, categorical_cols: List[str] = None
 ) -> pd.DataFrame:
-
     if categorical_cols is None:
         categorical_cols = ["Sex"]
     le = LabelEncoder()
