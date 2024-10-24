@@ -36,7 +36,17 @@ jobs:
         run: |
           pip install pre-commit
 
-      # Step 5:Run pre-coomit checks to ensure code quality
+      # Step 6:Run pre-commit checks to ensure code quality
       - name: Run pre-commit to check code 
         run: |
           pre-commit run --all-files
+      
+      # Step 7:Run Black to check code format
+      - name: Check code formatting with Black
+        run: |
+          black --check .
+
+      # Step 8: Run the linters
+      - name: Lint code with Flake8
+        run: |
+          flake8 .

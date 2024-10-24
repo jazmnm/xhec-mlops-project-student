@@ -30,4 +30,5 @@ if __name__ == "__main__":
     )
     parser.add_argument("trainset_path", type=str, help="Path to the training set")
     args = parser.parse_args()
+    
     main(args.trainset_path)
