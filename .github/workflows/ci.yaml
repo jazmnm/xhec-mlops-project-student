@@ -39,4 +39,4 @@ jobs:
       # Step 5:Run pre-coomit checks to ensure code quality
       - name: Run pre-commit to check code 
         run: |
-          pre-commit run --all files
+          pre-commit run --all-files
