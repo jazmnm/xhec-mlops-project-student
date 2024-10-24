@@ -1,0 +1,52 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  CI:
+    name: Launching CI
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.10'] 
+
+    steps:
+      #Step 1:Checkout the repository
+      - uses: actions/checkout@v2
+
+      #Step 2:Set up python version
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      # Step 3: Install project dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      # Step 4: Install development dependencies
+      - name: Install development dependencies
+        run: |
+          pip install -r requirements-dev.txt
+
+      # Step 5: Install pre-commit
+      - name: Install pre-commit
+        run: |
+          pip install pre-commit
+
+      # Step 6:Run pre-commit checks to ensure code quality
+      - name: Run pre-commit to check code 
+        run: |
+          pre-commit run --all-files
+      
+      # Step 7:Run Black to check code format
+      - name: Check code formatting with Black
+        run: |
+          black --check .
+
+      # Step 8: Run the linters
+      - name: Lint code with Flake8
+        run: |
+          flake8 --max-line-length=88 .
