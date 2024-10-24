@@ -31,6 +31,11 @@ jobs:
         run: |
           pip install -r requirements-dev.txt
 
+      # Step 5: Install pre-commit
+      - name: Install pre-commit
+        run: |
+          pip install pre-commit
+
       # Step 5:Run pre-coomit checks to ensure code quality
       - name: Run pre-commit to check code 
         run: |
