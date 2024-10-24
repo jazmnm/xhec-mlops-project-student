@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/jazminemei/Desktop/HEC/MLOps/Project/xhec-mlops-project-student/notebooks/mlruns/475563951085178359/3d9ade254da54bdcb16ee39e5bc211cc/artifacts
+end_time: 1729765032437
+entry_point_name: ''
+experiment_id: '475563951085178359'
+lifecycle_stage: active
+run_id: 3d9ade254da54bdcb16ee39e5bc211cc
+run_name: incongruous-dove-11
+run_uuid: 3d9ade254da54bdcb16ee39e5bc211cc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1729765032411
+status: 4
+tags: []
+user_id: jazminemei

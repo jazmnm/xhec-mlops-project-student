@@ -1,0 +1,13 @@
+aliases: []
+creation_timestamp: 1729766100585
+current_stage: None
+description: null
+last_updated_timestamp: 1729766100585
+name: AbaloneLR
+run_id: 9c895e9ce1a4432b971dcaf8d35628d5
+run_link: null
+source: file:///Users/jazminemei/Desktop/HEC/MLOps/Project/xhec-mlops-project-student/notebooks/mlruns/475563951085178359/9c895e9ce1a4432b971dcaf8d35628d5/artifacts/model
+status: READY
+status_message: null
+user_id: null
+version: 4

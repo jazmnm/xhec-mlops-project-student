@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/jazminemei/Desktop/HEC/MLOps/Project/xhec-mlops-project-student/notebooks/mlruns/475563951085178359/92ba012f13254e05ab94b8211574cfdc/artifacts
+end_time: 1729765881273
+entry_point_name: ''
+experiment_id: '475563951085178359'
+lifecycle_stage: active
+run_id: 92ba012f13254e05ab94b8211574cfdc
+run_name: skittish-ram-715
+run_uuid: 92ba012f13254e05ab94b8211574cfdc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1729765881243
+status: 4
+tags: []
+user_id: jazminemei
