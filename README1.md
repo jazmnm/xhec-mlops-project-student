@@ -218,16 +218,17 @@ The project is set up for deployment using **Docker**. You can build and run the
 ### 1. Build the Docker Image
 
 ```bash
-docker build -t abalone-model .
+docker build -t abalone_age_prediction -f Dockerfile.app .
 ```
 
 ### 2. Run the Docker Container
 
 ```bash
-docker run -d -p 8000:8000 abalone-model
+docker run -d -p 0.0.0.0:8000:8001 -p 0.0.0.0:4200:4201 abalone_age_prediction
 ```
-
-This will start the FastAPI app, which you can access at `http://localhost:8000`.
+Once the container is running:
+The FastAPI app can be accessed at http://localhost:8000.
+If you have a front-end interface, you can access it at http://localhost:4200.
 
 ---
 
