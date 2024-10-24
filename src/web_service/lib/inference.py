@@ -24,10 +24,9 @@ def run_inference(input_data: list[PredictionInput], model: BaseEstimator) -> np
     # No need to call .dict() as input_data is already a list of dicts after preprocessing
     input_data = preprocess_input(input_data)
     df = pd.DataFrame(input_data)
-    print(df.columns)
     df = encode_categorical_cols(df)
     # Running inference
     y = model.predict(df)
-
     logger.info(f"Predicted the age of abalone:\n{y}")
+    print(y)
     return y
